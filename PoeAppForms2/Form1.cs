@@ -42,19 +42,18 @@ namespace PoeAppForms2
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            
-            _myKoBNamnRetur.klassNamn = textBox2.Text;
-        }
-
-        
-        private void btn2_Click(object sender, EventArgs e)
-        {
             string rKNamn = textBox2.Text;
             if (rKNamn.Contains("Handed"))
             {
                 rKNamn = rKNamn.Replace("Handed", "Hand");
             }
-            _myKoBNamnRetur.basTyp = rKNamn;
+            _myKoBNamnRetur.klassNamn = rKNamn;
+        }
+
+        
+        private void btn2_Click(object sender, EventArgs e)
+        {
+            _myKoBNamnRetur.basTyp = textBox3.Text;
         }
         
 
@@ -78,7 +77,7 @@ namespace PoeAppForms2
             string basTyp = _myKoBNamnRetur.basTyp;
 
             StreamWriter sw = new StreamWriter(path, true); //Skapar streamwriter till pathen som angivits ovan, true gör att den inte skriver över annan data
-            sw.WriteLine("\r\n" + show + "\r\n" + klass + klassNamn + "\r\n" + baseType + '"' + basTyp + '"' + "\r\n" + fontSize + font + "\r\n" + borderColor + color + "\r\n" +
+            sw.WriteLine("\r\n" + show + "\r\n" + klass + '"' + klassNamn + '"' + "\r\n" + baseType + basTyp + "\r\n" + fontSize + font + "\r\n" + borderColor + color + "\r\n" +
                 rarity + @">= " + normal + magic + rare + "\r\n" + itemLevel + @">= " + level);
             sw.Close();
             MessageBox.Show("Sparat!");
