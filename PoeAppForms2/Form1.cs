@@ -13,7 +13,7 @@ namespace PoeAppForms2
 {
     public partial class Form1 : Form
     {
-        KlassNamnRetur myKlassNamnRetur = new KlassNamnRetur();
+        KoBNamnRetur _myKoBNamnRetur = new KoBNamnRetur();
         string path = @"C:\Users\Kalle\Desktop\Kul\TestFilter.filter";
         
         public Form1()
@@ -34,20 +34,27 @@ namespace PoeAppForms2
         }
 
         
-        public struct KlassNamnRetur
+        public struct KoBNamnRetur
         {
             public string klassNamn;
+            public string basTyp;
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            myKlassNamnRetur.klassNamn = textBox1.Text;
+            
+            _myKoBNamnRetur.klassNamn = textBox2.Text;
         }
 
         
         private void btn2_Click(object sender, EventArgs e)
         {
-            string basTyp = textBox3.Text;
+            string rKNamn = textBox2.Text;
+            if (rKNamn.Contains("Handed"))
+            {
+                rKNamn = rKNamn.Replace("Handed", "Hand");
+            }
+            _myKoBNamnRetur.basTyp = rKNamn;
         }
         
 
@@ -56,7 +63,7 @@ namespace PoeAppForms2
         {
             string show = "Show";
             string klass = "Class ";
-            string baseType = "BaseType";
+            string baseType = "BaseType ";
             string fontSize = "SetFontSize ";
             int font = 28;
             string borderColor = "SetBorderColor ";
@@ -67,11 +74,14 @@ namespace PoeAppForms2
             string rare = "Rare";
             string itemLevel = "ItemLevel ";
             int level = 1;
+            string klassNamn = _myKoBNamnRetur.klassNamn;
+            string basTyp = _myKoBNamnRetur.basTyp;
 
             StreamWriter sw = new StreamWriter(path, true); //Skapar streamwriter till pathen som angivits ovan, true gör att den inte skriver över annan data
-            sw.WriteLine("\r\n" + show + "\r\n" + klass + klassNamn + "\r\n" + baseType + basTyp + "\r\n" + fontSize + font + "\r\n" + borderColor + color + "\r\n" +
+            sw.WriteLine("\r\n" + show + "\r\n" + klass + klassNamn + "\r\n" + baseType + '"' + basTyp + '"' + "\r\n" + fontSize + font + "\r\n" + borderColor + color + "\r\n" +
                 rarity + @">= " + normal + magic + rare + "\r\n" + itemLevel + @">= " + level);
             sw.Close();
+            MessageBox.Show("Sparat!");
 
         }
     }
