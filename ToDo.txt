@@ -1,0 +1,29 @@
+textfält där man kan klistra in stats som man får från spelet:
+Rarity: Unique
+Dreadarc
+Cleaver   
+--------
+One Handed Axe 
+Quality: +14% (augmented)
+Physical Damage: 28-64 (augmented)
+Elemental Damage: 15-21 (augmented)
+Critical Strike Chance: 5.00%
+Attacks per Second: 1.31 (augmented)
+--------
+Requirements:
+Level: 16
+Str: 48
+--------
+Sockets: R-R 
+--------
+Item Level: 75
+--------
+Adds 14-23 Physical Damage
+Adds 15-21 Fire Damage
+9% increased Attack Speed
++16% to Fire Resistance
+5% increased Movement Speed
+Curse Enemies with Flammability on Hit
+--------
+The fastest way to a man's heart
+is through his sternum.
